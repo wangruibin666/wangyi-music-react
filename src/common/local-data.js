@@ -50,7 +50,7 @@ export const footerLinks = [
 
 export const footerImages = [
   {
-    link:"https://web-amped.music.163.com/"
+    link: "https://music.163.com/st/userbasic#/auth"
   },
   {
     link: "https://music.163.com/recruit"

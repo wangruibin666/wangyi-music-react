@@ -8,7 +8,7 @@ import {
   FooterRight,
 } from './style';
 
-export default memo(function WangAppFooter() {
+export default memo(function HYAppFooter() {
   return (
   <AppFooterWrapper>
     <div className="wrap-v2 content">

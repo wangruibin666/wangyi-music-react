@@ -1,67 +1,89 @@
-import React from 'react'
-import WangDiscover from '@/pages/discover';
-import WangFriend from '@/pages/friend';
-import WangMine from '@/pages/mine';
-import WangRecommend from '@/pages/discover/c-pages/recommend'
-import WangAlbum from '@/pages/discover/c-pages/album'
-import WangArtist from '@/pages/discover/c-pages/artist'
-import WangDjradio from '@/pages/discover/c-pages/djradio'
-import WangRanking from '@/pages/discover/c-pages/ranking'
-import WangSongs from '@/pages/discover/c-pages/songs'
-import { Redirect } from 'react-router-dom';
+import React from 'react';
+import { Redirect } from "react-router-dom";
+
+const HYDiscover = React.lazy(() => import("@/pages/discover"));
+const HYRecommend = React.lazy(_ => import("../pages/discover/c-pages/recommend"));
+const HYRanking = React.lazy(_ => import("../pages/discover/c-pages/ranking"));
+const HYSongs = React.lazy(_ => import("../pages/discover/c-pages/songs"));
+const HYDjradio = React.lazy(_ => import("../pages/discover/c-pages/djradio"));
+const HYArtist = React.lazy(_ => import("../pages/discover/c-pages/artist"));
+const HYAlbum = React.lazy(_ => import("../pages/discover/c-pages/album"));
+const HYPlayer = React.lazy(_ => import("../pages/player"));
+
+const HYFriend = React.lazy(_ => import("../pages/friend"));
+const HYMine = React.lazy(_ => import("../pages/mine"));
+
+// import HYDiscover from "@/pages/discover";
+// import HYRecommend from "../pages/discover/c-pages/recommend";
+// import HYRanking from "../pages/discover/c-pages/ranking";
+// import HYSongs from "../pages/discover/c-pages/songs";
+// import HYDjradio from "../pages/discover/c-pages/djradio";
+// import HYArtist from "../pages/discover/c-pages/artist";
+// import HYAlbum from "../pages/discover/c-pages/album";
+// import HYPlayer from "../pages/player";
+
+// import HYMine from "@/pages/mine";
+// import HYFriend from "@/pages/friend";
 
 
 const routes = [
   {
     path: "/",
     exact: true,
-    render: () => <Redirect to="/discover" />
+    render: () => (
+      <Redirect to="/discover"/>
+    )
   },
   {
     path: "/discover",
-    component: WangDiscover,
+    component: HYDiscover,
     routes: [
       {
         path: "/discover",
         exact: true,
-        render: () => <Redirect to="/discover/recommend"/>
-      }
-       ,
-      {
-        path: '/discover/recommend',
-        component: WangRecommend
+        render: () => (
+          <Redirect to="/discover/recommend"/>
+        )
       },
       {
-        path: '/discover/album',
-        component: WangAlbum
+        path: "/discover/recommend",
+        component: HYRecommend
       },
       {
-        path: '/discover/artist',
-        component: WangArtist
+        path: "/discover/ranking",
+        component: HYRanking
       },
       {
-        path: '/discover/djradio',
-        component: WangDjradio
+        path: "/discover/songs",
+        component: HYSongs
       },
       {
-        path: '/discover/ranking',
-        component: WangRanking
+        path: "/discover/djradio",
+        exact: true,
+        component: HYDjradio
       },
       {
-        path: '/discover/songs',
-        component: WangSongs
+        path: "/discover/artist",
+        component: HYArtist
+      },
+      {
+        path: "/discover/album",
+        component: HYAlbum
+      },
+      {
+        path: "/discover/player",
+        component: HYPlayer
       }
     ]
   },
   {
     path: "/mine",
-    component: WangMine
+    component: HYMine
   },
   {
     path: "/friend",
-    component: WangFriend
-  }
-
+    component: HYFriend
+  },
 ];
 
 export default routes;

@@ -1,54 +1,65 @@
-import React, {memo, useEffect} from 'react';
-// import {connect} from "react-redux";
-import {useDispatch, useSelector} from "react-redux"; //hooks
-import {getTopBannerAction} from './store/actionCreators';
+import React, { memo } from 'react';
 
-function WangRecommend(props) {
+import HYTopBanner from './c-cpns/top-banner';
+import HYHotRecommend from './c-cpns/hot-recommend';
+import HYNewAlbum from './c-cpns/new-album';
+import HYRecommendRanking from './c-cpns/recommend-ranking';
+import HYUserLogin from './c-cpns/user-login';
+import HYSettleSinger from './c-cpns/settle-singer';
+import HYHotAnchor from './c-cpns/hot-anchor';
+import { 
+  RecommendWrapper,
+  Content,
+  RecommendLeft,
+  RecommendRight
+} from './style';
 
-  //组件和reducer关联
-  const {topBanners} = useSelector(state => ({
-    topBanners: state.recommend.topBanners
-  }));
-  const dispatch = useDispatch();
-
-//发送网络请求
-  useEffect(() => {
-    dispatch(getTopBannerAction())
-  }, [dispatch]);
-
+function HYRecommend(props) {
   return (
-      <div>
-        <div>WangRecommend:{topBanners.length}</div>
-      </div>
+    <RecommendWrapper>
+      <HYTopBanner/>
+      <Content className="wrap-v2">
+        <RecommendLeft>
+          <HYHotRecommend/>
+          <HYNewAlbum/>
+          <HYRecommendRanking/>
+        </RecommendLeft>
+        <RecommendRight>
+          <HYUserLogin/>
+          <HYSettleSinger/>
+          <HYHotAnchor/>
+        </RecommendRight>
+      </Content>
+    </RecommendWrapper>
   )
 }
 
-export default memo(WangRecommend);
+export default memo(HYRecommend);
 
 
+// function HYRecommend(props) {
 //   const { getBanners, topBanners } = props;
+
 //   useEffect(() => {
-//     getBanners()
+//     getBanners();
 //   }, [getBanners])
-//
-//     return (
-//         <div>
-//           <div>WangRecommend: {topBanners.length}</div>
-//         </div>
-//     )
+
+//   return (
+//     <div>
+//       <h2>HYRecommend: {topBanners.length}</h2>
+//     </div>
+//   )
 // }
-//
+
 // const mapStateToProps = state => ({
 //   topBanners: state.recommend.topBanners
-// })
-//
+// });
+
 // const mapDispatchToProps = dispatch => ({
 //   getBanners: () => {
 //     dispatch(getTopBannerAction())
 //   }
 // })
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(memo(WangRecommend))
 
-
+// export default connect(mapStateToProps, mapDispatchToProps)(memo(HYRecommend));
 

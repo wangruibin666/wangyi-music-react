@@ -1,9 +1,9 @@
-import React, { memo } from 'react';
+import React, { memo } from 'react'
 
-export default memo(function WangAlbum() {
+export default memo(function HYAlbum() {
   return (
-      <div>
-        <div>WangAlbum</div>
-      </div>
+    <div>
+      <h2>HYAlbum</h2>
+    </div>
   )
 })

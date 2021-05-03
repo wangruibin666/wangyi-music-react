@@ -1,9 +1,9 @@
-import React, { memo } from 'react';
+import React, { memo } from 'react'
 
-export default memo(function WangDjradio() {
+export default memo(function HYDjradio() {
   return (
-      <div>
-        <div>WangDjradio</div>
-      </div>
+    <div>
+      <h2>HYDjradio</h2>
+    </div>
   )
 })

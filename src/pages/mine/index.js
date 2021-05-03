@@ -1,9 +1,10 @@
 import React, { memo } from 'react';
 
-export default memo(function WangMine(){
+export default memo(function HYMine() {
   return (
-      <div>
-        <h2>WangMine</h2>
-      </div>
+    <div>
+      <h2>HYMine</h2>
+    </div>
   )
 })
+

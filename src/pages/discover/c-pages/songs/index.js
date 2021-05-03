@@ -1,9 +1,9 @@
-import React, { memo } from 'react';
+import React, { memo } from 'react'
 
-export default memo(function WangSongs() {
+export default memo(function HYSongs() {
   return (
-      <div>
-        <div>WangSongs</div>
-      </div>
+    <div>
+      <h2>HYSongs</h2>
+    </div>
   )
 })
